@@ -125,13 +125,11 @@ public class UI_Controller : MonoBehaviour
         if (Scene_controller.Instance.finished)
             Display_Character();
         Menu_Panel.SetActive(false);
-        Roll_panel.SetActive(true);
     }
 
     public void Back()
     {
         Menu_Panel.SetActive(true);
-        Roll_panel.SetActive(false);
     }
 
     public void Select_Race()
@@ -304,8 +302,8 @@ public class UI_Controller : MonoBehaviour
         GameObject.Find("Alignment Selection").GetComponent<Dropdown>().value = Scene_controller.Instance.Alignment;
         GameObject.Find("Character Name").GetComponent<InputField>().text = stats.Character_Name;
         Json_Out.GetComponent<InputField>().text = stats.SaveToString();
-
-        GameObject.Find("Roll_stats").SetActive(false);
+         if(GameObject.Find("Roll_stats") != null)
+            GameObject.Find("Roll_stats").SetActive(false);
 
     }
 
